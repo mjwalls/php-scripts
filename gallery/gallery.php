@@ -1,156 +1,156 @@
 <?php
 
-	// ---- super-simple php image gallery ----
+    // ---- super-simple php image gallery ----
 
-	// A stupidly simple php image gallery.
+    // A stupidly simple php image gallery.
 
-	// ---- setup ----
+    // ---- setup ----
 
-	// create two directories: one for the master images, one for thumbnails.
-	// put the directory names into the configuration section of this script.
-	// System recognises png, jpg, and jpeg file extensions.
+    // create two directories: one for the master images, one for thumbnails.
+    // put the directory names into the configuration section of this script.
+    // System recognises png, jpg, and jpeg file extensions.
 
-	// the thumbnails are assumed to have the same name as the master image.
+    // the thumbnails are assumed to have the same name as the master image.
 
- 	// ---- configuration ----
+     // ---- configuration ----
 
-	$thumbsdirectory = 'wowconcept/thumbs/'; // thumbnail images
-	$directory       = 'wowconcept/';        // full images
+    $thumbsdirectory = 'wowconcept/thumbs/'; // thumbnail images
+    $directory       = 'wowconcept/';        // full images
 
 ?>
 
 <html>
 
-	</head>
+    </head>
 
-		<title>Gallery</title>
+        <title>Gallery</title>
 
-		<style>
+        <style>
 
-			html {
+            html {
 
-				background-color: rgb(230, 230, 230);
+                background-color: rgb(230, 230, 230);
 
-				font-family: "HelveticaNeue",Helvetica,Arial,sans-serif;
-				color:       #393939;
-				font-weight: 400;
-				line-height: 18.2px;
-				margin:      0px;
-				padding:     0px;
+                font-family: "HelveticaNeue",Helvetica,Arial,sans-serif;
+                color:       #393939;
+                font-weight: 400;
+                line-height: 18.2px;
+                margin:      0px;
+                padding:     0px;
 
-			}
+            }
 
-			body {
-			  
-				margin:  0px;
-				padding: 0px;
+            body {
+              
+                margin:  0px;
+                padding: 0px;
 
-			}
+            }
 
-			img{
-				
-				display: inline;
-				width:   64px;
-				height:  64px;
-				margin:  0px;
+            img{
+                
+                display: inline;
+                width:   64px;
+                height:  64px;
+                margin:  0px;
 
-			}
+            }
 
-			h1{
+            h1{
 
-				border-bottom:  1px solid #CCCCCC;
-				padding-top:    20px;
-				padding-bottom: 20px;
-				color:          #393939;
-				font-weight:    700;
-				font-size:      20px;
+                border-bottom:  1px solid #CCCCCC;
+                padding-top:    20px;
+                padding-bottom: 20px;
+                color:          #393939;
+                font-weight:    700;
+                font-size:      20px;
 
-			}
+            }
 
-			h2{
+            h2{
 
-				color:          #393939;
-				padding-top:    20px;
-				padding-bottom: 20px;
-				font-weight:    700;
-				font-size:      18px;
+                color:          #393939;
+                padding-top:    20px;
+                padding-bottom: 20px;
+                font-weight:    700;
+                font-size:      18px;
 
-			}
+            }
 
-			#content{
+            #content{
   
-				float:         left;
-				padding:       20px;
-				margin-top:    60px;
-				margin-left:   70px;
-				margin-bottom: 20px;
-				min-height:    600px;
-				width:         80%;
-				border:        1px solid #CACACA;
+                float:         left;
+                padding:       20px;
+                margin-top:    60px;
+                margin-left:   70px;
+                margin-bottom: 20px;
+                min-height:    600px;
+                width:         80%;
+                border:        1px solid #CACACA;
 
-				background-color: rgb(256, 256, 256);
-				border-radius:    3px 3px 3px 3px;
+                background-color: rgb(256, 256, 256);
+                border-radius:    3px 3px 3px 3px;
 
-			}
+            }
 
-			.highlight{
+            .highlight{
 
-				float:  left;
-				border: 1px solid #CACACA;
-				margin: 10px;
-				height: 59px;
+                float:  left;
+                border: 1px solid #CACACA;
+                margin: 10px;
+                height: 59px;
 
-				padding-bottom:   5px;
-				background-color: #FAFAFB;
-				border-radius:    3px 3px 3px 3px;
+                padding-bottom:   5px;
+                background-color: #FAFAFB;
+                border-radius:    3px 3px 3px 3px;
 
-			}
+            }
 
-		</style>
+        </style>
 
-	</head>
+    </head>
 
-	<body>
+    <body>
 
-		<div id="content">
+        <div id="content">
 
-		<h1>Gallery</h1>
+        <h1>Gallery</h1>
 
-			<?php
+            <?php
 
-				// open the thumbnail directory
+                // open the thumbnail directory
 
-				if ($handle = opendir($thumbsdirectory)) {
+                if ($handle = opendir($thumbsdirectory)) {
 
-					// scan directory for files
+                    // scan directory for files
 
-					while (($entry = readdir($handle)) !== false) {
+                    while (($entry = readdir($handle)) !== false) {
 
-						// if it is a file
+                        // if it is a file
 
-						if(strpos ($entry , "png")  !== FALSE || 
-						   strpos ($entry , "jpg")  !== FALSE ||
-						   strpos ($entry , "jpeg") !== FALSE){
+                        if(strpos ($entry , "png")  !== FALSE || 
+                           strpos ($entry , "jpg")  !== FALSE ||
+                           strpos ($entry , "jpeg") !== FALSE){
 
-						   	// then generate the relevant html code.
-							
-							echo "<span class='highlight'>\n";
-							echo "<a href=\"" . $directory . $entry . "\">";
-							echo "<img src='" . $thumbsdirectory . $entry . "'>\n";
-							echo "</a>";
-							echo "</span>\n";
+                               // then generate the relevant html code.
+                            
+                            echo "<span class='highlight'>\n";
+                            echo "<a href=\"" . $directory . $entry . "\">";
+                            echo "<img src='" . $thumbsdirectory . $entry . "'>\n";
+                            echo "</a>";
+                            echo "</span>\n";
 
-						}
+                        }
 
-					}
+                    }
 
-					closedir($handle);
-				}
+                    closedir($handle);
+                }
 
-			?>
+            ?>
 
-		</div>
+        </div>
 
-	</body>
+    </body>
 
 </html>
